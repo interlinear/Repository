@@ -12,7 +12,7 @@ public class DatabaseSetup {
     private static final String TESTDB = "uka";
 
 
-    public static CouchDbClient getDbCliend(){
+    public static CouchDbClient getDbCliend() {
 
         CouchDbProperties properties = new CouchDbProperties()
                 .setDbName(TESTDB)
@@ -24,7 +24,7 @@ public class DatabaseSetup {
                 .setPassword("FNHadm88693")
                 .setMaxConnections(100)
                 .setConnectionTimeout(0);
-       return dbClient = new CouchDbClient(properties);
+        return dbClient = new CouchDbClient(properties);
     }
 
 }

@@ -15,12 +15,12 @@ public class DummyData {
 
     private Random random;
 
-    public DummyData(){
+    public DummyData() {
         data = "Some data";
         name = "SomeName";
     }
 
-    public String getData(){
+    public String getData() {
         return data;
     }
 

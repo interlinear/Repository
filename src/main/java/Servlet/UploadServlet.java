@@ -2,21 +2,15 @@ package Servlet;
 
 import Controller.DatabaseController;
 import Controller.DatabaseSetup;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import org.lightcouch.CouchDbClient;
-import org.lightcouch.CouchDbProperties;
+import org.lightcouch.Response;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import javax.xml.crypto.Data;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 
 public class UploadServlet extends HttpServlet {
@@ -25,19 +19,23 @@ public class UploadServlet extends HttpServlet {
     }
 
     private CouchDbClient dbClient;
+    private DatabaseController dbController;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        out.println("doGet UploadServlet");
+        System.out.println("\n\nUpload servlet\n\n");
 
         dbClient = DatabaseSetup.getDbCliend();
 
-        DatabaseController dbController = new DatabaseController();
-        out.println(dbController.addToDatabase(dbClient));
+        dbController = new DatabaseController();
+        Response resp = dbController.addToDatabase(dbClient);
+
+        String docId = resp.getId();
+        request.setAttribute("docId", docId);
 
         out.println("Finish with adding");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("afterAddedDocument.jsp");
         dispatcher.forward(request, response);
     }
 
