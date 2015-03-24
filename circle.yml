@@ -4,7 +4,10 @@ machine:
 
 dependencies:
   override:
-    - docker build -t $USER/$REPO_NAME .
+  pre:
+      - mvn clean install
+  post:
+      - docker build -t interlinear/repository .
 
 deployment:
   hub:

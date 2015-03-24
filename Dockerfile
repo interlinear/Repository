@@ -1,4 +1,4 @@
-FROM tomcat
-ADD index.html /usr/local/tomcat/webapps/ROOT/index.html
+FROM jboss/wildfly
+ADD ./target/testmaven-maven.war ./opt/jboss/wildfly/standalone/deployments/testmaven-maven.war
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+CMD ["/opt/jboss/wildfly/bin/standalone", "-b", "0.0.0.0"]
