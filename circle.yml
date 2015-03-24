@@ -7,8 +7,11 @@ dependencies:
   pre:
       - mvn clean install
   post:
-      - docker build -t interlinear/repository .
-
+      - docker build -t $USER/$REPO_NAME .
+test:
+    override:
+      - docker run -d -p 8080:8080 $USER/$REPO_NAME; sleep 10
+      - curl --retry 10 --retry-delay 5 -v http://localhost:8080/testmaven-maven 
 deployment:
   hub:
     branch: master
