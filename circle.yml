@@ -1,3 +1,14 @@
 machine:
-        java:
-                version: openjdk7
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t $USER/$REPO_NAME .
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
+      - docker push $USER/$REPO_NAME
