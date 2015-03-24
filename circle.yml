@@ -16,7 +16,7 @@ deployment:
   hub:
     branch: master
     commands:
-      - pip install awscli
+      - pip install --user awscli
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
       - docker push $USER/$REPO_NAME
       - bash deploy.sh
