@@ -16,8 +16,9 @@ deployment:
   hub:
     branch: master
     commands:
-      - pip install --user awscli
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
       - docker push $USER/$REPO_NAME
+      - pip install --user awscli
+      - echo $PATH
       - which aws
       - aws --version
