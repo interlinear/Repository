@@ -5,4 +5,4 @@ aws --version
 #aws configure set deafult.output json
 
 echo "copy Dockerfile"
-aws s3 cp Dockerfile s3://$EB_BUCKET/Dockerfile
+aws s3 ls s3://
