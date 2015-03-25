@@ -19,4 +19,4 @@ deployment:
       - pip install --user awscli
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
       - docker push $USER/$REPO_NAME
-      - aws configure list
+      - aws help
