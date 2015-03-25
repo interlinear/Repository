@@ -21,5 +21,5 @@ deployment:
       - docker push $USER/$REPO_NAME
       - echo $AWSKEY > /home/ubuntu/.awssecret
       - echo $AWSSECRETKEY >> /home/ubuntu/.awssecret
-      - chmod 700 /home/ubuntu.awssecret
+      - chmod 700 /home/ubuntu/.awssecret
       - bash deploy.sh
