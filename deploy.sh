@@ -6,4 +6,8 @@
 
 #echo "copy Dockerfile"
 #aws s3 ls s3://
+#aws configure help
+
+pip install --user awscli
+export PATH=$HOME/.local/bin:$PATH
 aws configure help
