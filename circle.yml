@@ -19,7 +19,4 @@ deployment:
       - pip install --user awscli
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
       - docker push $USER/$REPO_NAME
-      - echo $AWSKEY > /home/ubuntu/.awssecret
-      - echo $AWSSECRETKEY >> /home/ubuntu/.awssecret
-      - chmod 700 /home/ubuntu/.awssecret
       - bash deploy.sh
