@@ -5,13 +5,13 @@ machine:
 dependencies:
   override:
   pre:
-      - mvn clean install
+    - mvn clean install
   post:
-      - docker build -t $USER/$REPO_NAME .
-      - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
-      - docker push $USER/$REPO_NAME
+    - docker build -t $USER/$REPO_NAME .
+    - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
+    - docker push $USER/$REPO_NAME
 deployment:
   aws:
     branch: master
     commands:
-        - bash deploy.sh
+      - bash deploy.sh

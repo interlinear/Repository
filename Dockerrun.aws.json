@@ -1,0 +1,10 @@
+{
+    "Image" :  {
+        "Name" : "interlinear/repository"
+    },
+    "Ports" : [
+        {
+            "ContainerPort" : "80"
+        }
+    ]
+}
