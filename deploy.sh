@@ -5,4 +5,5 @@ aws --version
 #aws configure set deafult.output json
 
 echo "copy Dockerfile"
-aws s3 ls s3://
+#aws s3 ls s3://
+aws ec2 help
