@@ -20,3 +20,4 @@ deployment:
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
       - docker push $USER/$REPO_NAME
       - which aws
+      - aws --version
