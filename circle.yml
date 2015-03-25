@@ -6,6 +6,8 @@ dependencies:
   override:
   pre:
       - mvn clean install
+      - pip install --user awscli
+      - export PATH=$HOME/.local/bin:$PATH
   post:
       - docker build -t $USER/$REPO_NAME .
       - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
