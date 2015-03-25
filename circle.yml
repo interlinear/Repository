@@ -18,8 +18,8 @@ deployment:
     commands:
         - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
         - docker push $USER/$REPO_NAME
-        aws:
-            commands:
-                - echo $PATH
-                - which aws
-                - aws configure list
+    aws:
+    commands:
+        - echo $PATH
+        - which aws
+        - aws configure list
