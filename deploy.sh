@@ -10,4 +10,4 @@
 
 pip install --user awscli
 export PATH=$HOME/.local/bin:$PATH
-aws configure help
+aws s3 ls s3://interlinear101
