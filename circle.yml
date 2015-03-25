@@ -18,7 +18,8 @@ deployment:
     commands:
         - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
         - docker push $USER/$REPO_NAME
-    aws:
+  aws:
+    branch: master
     commands:
         - echo $PATH
         - which aws
