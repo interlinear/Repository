@@ -14,11 +14,10 @@ dependencies:
 #      - curl --retry 10 --retry-delay 5 -v http://localhost:8080/testmaven-maven
 deployment:
   aws:
-  hub:
     branch: master
     commands:
-      - docker login -e $EMAIL -u $USER -p $DOCKER_PASS
-      - docker push $USER/$REPO_NAME
+        #- docker login -e $EMAIL -u $USER -p $DOCKER_PASS
+        #- docker push $USER/$REPO_NAME
       - echo $PATH
       - which aws
       - aws --version
