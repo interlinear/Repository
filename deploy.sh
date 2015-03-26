@@ -1,12 +1,7 @@
 pip install --user awscli
 export PATH=$HOME/.local/bin:$PATH
-#pwd
-#zip -r App.zip Dockerfile target/
-#ls -la
-#unzip -t App.zip
-#aws configure set default.region us-west-2
-#aws configure set default.output json
-#aws elasticbeanstalk describe-applications
+aws configure set default.region us-west-2
+aws configure set default.output json
 APPNAME="first-app"
 
 zip -r ${CIRCLE_SHA1}.zip Dockerfile target/
