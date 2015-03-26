@@ -8,11 +8,14 @@
 #aws s3 ls s3://
 #aws configure help
 
-#pip install --user awscli
-#export PATH=$HOME/.local/bin:$PATH
+pip install --user awscli
+export PATH=$HOME/.local/bin:$PATH
 #aws configure set aws_access_key_id $AWSKEY
 #aws configure set aws_secret_access_key $AWSSECRETKEY
 #aws s3 ls s3://interlinear101
 pwd
-zip App.zip Dockerfile Dockerrun.aws.json
+zip -r App.zip Dockerfile target/
 ls -la
+unzip -t App.zip
+
+aws elasticbeanstalk describe-applications
