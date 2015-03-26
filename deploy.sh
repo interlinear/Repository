@@ -4,8 +4,8 @@ aws configure set default.region us-west-2
 aws configure set default.output json
 APPNAME="first-app"
 
-zip -r ${CIRCLE_SHA1}.zip Dockerfile target/
-aws s3 cp ${CIRCLE_SHA1}.zip s://$my_bucket/
+zip -r ${CIRCLE_SHA1}.zip Dockerfile index.html
+aws s3 cp ${CIRCLE_SHA1}.zip s3://$my_bucket/
 aws elasticbeanstalk create-application-version --application-name $APPNAME --version-label $CIRCLE_SHA1\
     --description "My first elasticbeanstalk app in Docker container"\
     --source-bundle S3Bucket=$mu_bucket,S3Key=${CIRCLE_SHA1}.zip\
