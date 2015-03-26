@@ -15,6 +15,6 @@ aws elasticbeanstalk create-configuration-template --application-name $APPNAME\
     --template-name "my-app-template" && sleep 20 &&\
 aws elasticbeanstalk create-environment --application-name $APPNAME\
     --environment-name "my-app-docker"\
-    --template-name "first-app-template"\
+    --template-name "my-app-template"\
     --cname-prefix "firstapp-test" && sleep 400 && \
 aws elasticbeanstalk update-environment --environment-name "my-app-docker" --version-label $CIRCLE_SHA1
