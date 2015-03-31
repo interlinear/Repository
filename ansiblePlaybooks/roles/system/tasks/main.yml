@@ -1,0 +1,10 @@
+---
+
+- name: Print system version
+  shell: 'uname -a'
+  changed_when: False
+  sudo: no
+  register: result
+
+- name: debug
+  debug: var=result

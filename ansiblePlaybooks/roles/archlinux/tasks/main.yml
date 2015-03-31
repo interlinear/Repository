@@ -1,0 +1,11 @@
+---
+
+- name: Update Archlinux
+  command: pacman -Syyu
+  when: ansible_distribution == "Archlinux"
+  sudo: yes
+  register: result
+
+- name: debug
+  debug: var=result
+

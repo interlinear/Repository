@@ -1,0 +1,10 @@
+---
+
+- name: Update Amazon
+  command: yum upgrade
+  when: ansible_distribution == "Amazon"
+  sudo: yes
+  register: result
+
+- name: debug
+  debug: var=result
