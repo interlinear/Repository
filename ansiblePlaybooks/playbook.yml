@@ -5,20 +5,21 @@
   connection: localhost
 
   # the target user Ansible will impersonate when provisioning
-  user: johndoe
+  user: archie
 
-  # this makes all tasks run with sudo by default
-  sudo: true
+  # this prevents all tasks to run with sudo by default
+  sudo: false
 
   # additional variables
   vars:
     users: johndoe
 
-  # roles are a way to group tasts; they will run in the sequence determined
+  # roles are a way to group tasks; they will run in the sequence determined
   # here
   roles:
-    - system
-    - archlinux
+    #- system
+    #- archlinux
+    - docker
 
 # the host in which the playbook will be run
 - hosts: aws_host
@@ -28,8 +29,8 @@
   # the target user Ansible will impersonate when provisioning
   user: ec2-user
 
-  # this makes all tasks run with sudo by default
-  sudo: true
+  # this prevents all tasks to run with sudo by default
+  sudo: false
 
   # additional variables
   vars:
@@ -38,5 +39,6 @@
   # roles are a way to group tasts; they will run in the sequence determined
   # here
   roles:
-    - system
-    - amazonlinux
+    # - system
+    # - amazonlinux
+    - docker

@@ -1,0 +1,21 @@
+---
+
+- name: Bring up docker container for app
+  docker:
+    name: appContainer
+    image: ahmadhamadeh/adriano:latest
+    state: reloaded
+    pull: always
+    ports:
+      - "80:8080"
+      - "5984:5984"
+
+- name: Bring up docker container for db
+  docker:
+    name: dbContainer
+    image: adrianojs/couch:latest
+    state: reloaded
+    pull: always
+    ports:
+      - "5984:5984"
+    net: "container:appContainer"
