@@ -1,7 +1,7 @@
 ---
 
 - name: Update Archlinux
-  command: pacman -Syyu
+  command: "pacman -Syyu --noconfirm"
   when: ansible_distribution == "Archlinux"
   sudo: yes
   register: result

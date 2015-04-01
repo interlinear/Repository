@@ -1,7 +1,7 @@
 ---
 
 - name: Update Amazon
-  command: yum upgrade
+  yum: name='*' state=latest update_cache=yes
   when: ansible_distribution == "Amazon"
   sudo: yes
   register: result
